@@ -4,15 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test DB_HOST=localhost DB_PORT=5540 DB_USER=admin DB_PASS=admin123 DB_TEST_NAME=MessageTest REDIS_HOST=localhost REDIS_PORT=6383 REDIS_PASS=admin123 NODE_OPTIONS=--experimental-vm-modules jest --runInBand",
+    "dev:test": "NODE_ENV=test DB_HOST=localhost DB_PORT=5540 DB_USER=admin DB_PASS=admin123 DB_TEST_NAME=MessageTest REDIS_HOST=localhost REDIS_PORT=6383 REDIS_PASS=admin123 nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "sequelize": "^6.37.7"
+    "joi": "^18.0.2",
+    "pg": "^8.16.3",
+    "redis": "^5.10.0",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "ioredis-mock": "^8.13.1",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.1.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }

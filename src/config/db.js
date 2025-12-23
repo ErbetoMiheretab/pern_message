@@ -1,0 +1,15 @@
+import { Sequelize } from "sequelize";
+import { db, env } from "./variables.js";
+
+const dbName = env === "test" ? db.testName || "MessageTest" : db.name;
+
+const sequelize = new Sequelize(dbName, db.user, db.password, {
+  host: db.host,
+  port: db.port,
+  dialect: "postgres",
+  logging: env === "test" ? false : console.log,
+  pool: { max: 10, min: 5, acquire: 30000, idle: 10000 },
+});
+
+
+export default sequelize
