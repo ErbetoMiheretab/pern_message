@@ -1,4 +1,3 @@
-// messaging/src/services/DeliveryService.js
 class DeliveryService {
   constructor(models, redis, logger) {
     this.models = models;
